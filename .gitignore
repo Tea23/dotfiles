@@ -1,0 +1,4 @@
+.config/hexchat/logs/*
+.config/hexchat/certs/*
+.config/hexchat/scrollback/*
+.config/hexchat/otr/*
