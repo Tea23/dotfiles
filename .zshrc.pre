@@ -1,0 +1,27 @@
+export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+
+alias makepkg-redist="makepkg --config /home/joe/.config/makepkg/makepkg.conf"
+alias sprunge="curl -F 'sprunge=<-' http://sprunge.us"
+
+function sl-ssh() {
+	if [ "$1" = "webchat" ]; then		# We need root for webchat
+		ssh root@webchat.scoutlink.net
+
+	elif [ "$1" = "oak" ]; then
+		ssh scoutlink@oak.scoutlink.net -p 50008
+
+	elif [ "$1" = "twigg" ]; then
+		ssh "$1".scoutlink.net "$2"
+
+	elif [ "$1" = "bart" ]; then
+		ssh scoutlink@bart.webratz.de
+
+	elif [ "$1" = "evans" ] || [ "$1" = "boothroyd" ]; then
+		ssh "$1".warhaggis.com -p 756
+
+	elif [ "$1" != "" ]; then 
+		ssh scoutlink@"$1".scoutlink.net
+	else
+		echo "Could do with a server, m8"
+	fi
+}
